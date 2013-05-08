@@ -46,7 +46,7 @@ a:visited {
    color: rgb(50%, 0%, 50%);
 }
 
-pre {  
+pre {   
    margin-top: 0;
    max-width: 95%;
    border: 1px solid #ccc;
@@ -162,6 +162,16 @@ J(\theta) = \frac{1}{2m} \sum_{i = 1}^{m} \left( h_{\theta} ( x^{(i)} ) - y^{(i)
  \]</p>
 
 <h2>Logistic Regression</h2>
+
+<p><strong>Sigmoid Function</strong>
+\[ 
+g(z) = \frac{1}{1+e^{-z}}
+ \]</p>
+
+<p><strong>Cost Function</strong>
+\[ 
+J(\theta) = \frac{1}{m}\sum_{i=1}^{m} \left[ -y^{(i)} \log{(h_{\theta}(x^{(i)}))} - (1 - y^{(i)}) \log{(1 - h_{\theta}(x^{(i)}))} \right]
+ \]</p>
 
 </body>
 
