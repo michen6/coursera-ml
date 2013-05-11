@@ -319,7 +319,7 @@ probability that \( y = 1 \), given \( x \) parameterized by \( \theta \)</li>
 <p>Since \( P(y = 0 | x; \theta) + P(y = 1 | x; \theta) = 1 \), we have \[ P(y = 0 | x; \theta) = 1 - P(y = 1 | x; \theta) = 1 - h_{\theta}(x) = 1 - \frac{1}{1 + e^{-\theta^{T}x}} \]</p>
 <h3>Non-linear Decision Boundaries</h3>
 <p>\[ h_{\theta}(x) = g(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \theta_{3}x_{1}^{2} + \theta_{4}x_{2}^{2}) \]</p>
-<p>Let \( \theta_{0} = \begin{bmatrix} -1 \\ 0 \\ 0 \\ 1 \\ 1 \end{bmatrix} \), \( \theta_{1} = 0 \), \( \theta_{2} = 0 \), \( \theta_{3} = 1 \) and \( \theta_{4} = 0 \), we have \( h_{\theta}(x) = g(1 + x_{1}^{2} + x_{2}^{2}) \), which predicts \( y = 1 \) if \( -1 + x_{1}^{2} + x_{2}^{2} \geq 0 \).</p>
+<p>Let \( \theta_{0} = \begin{bmatrix} -1 \\ 0 \\ 0 \\ 1 \\ 1 \end{bmatrix} \), we have \( h_{\theta}(x) = g(1 + x_{1}^{2} + x_{2}^{2}) \), which predicts \( y = 1 \) if \( -1 + x_{1}^{2} + x_{2}^{2} \geq 0 \).</p>
 
 </body>
 </html>
