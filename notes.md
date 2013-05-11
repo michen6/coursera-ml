@@ -27,12 +27,12 @@ Example:
 - Online Transactions: Fraudulent (Yes / No)?
 - Tumor: Malignant / Benign ?
 
-**Binary Classification problem**: $ y \in \\{0, 1\\} $ where
+**Binary Classification problem**: $ y \in \{0, 1\} $ where
 
 - 0: Negative Class (malignant tumor)
 - 1: Postive Class (benign tumor)
 
-**Multi-class Classification problem**: $ y \in \\{0, 1, 2, 3...\\} $
+**Multi-class Classification problem**: $ y \in \{0, 1, 2, 3...\} $
 
 - If $ h\_{\theta}(x) > 0.5 $, $ y = 1 $
 - If $ h\_{\theta}(x) < 0.5 $, $ y = 0 $
