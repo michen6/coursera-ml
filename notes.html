@@ -3,12 +3,6 @@
 <head>
 <title>Notes</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 <style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
 /* Author: Nicolas Hery - http://nicolashery.com */
@@ -302,27 +296,30 @@ img {
 <li>Online Transactions: Fraudulent (Yes / No)?</li>
 <li>Tumor: Malignant / Benign ?</li>
 </ul>
-<p><strong>Binary Classification problem</strong>: $ y \in \{0, 1\} $ where</p>
+<p><strong>Binary Classification problem</strong>: \( y \in \{0, 1\} \) where</p>
 <ul>
 <li>0: Negative Class (malignant tumor)</li>
 <li>1: Postive Class (benign tumor)</li>
 </ul>
-<p><strong>Multi-class Classification problem</strong>: $ y \in \{0, 1, 2, 3...\} $</p>
+<p><strong>Multi-class Classification problem</strong>: \( y \in \{0, 1, 2, 3...\} \)</p>
 <ul>
-<li>If $ h_{\theta}(x) &gt; 0.5 $, $ y = 1 $</li>
-<li>If $ h_{\theta}(x) &lt; 0.5 $, $ y = 0 $</li>
+<li>If \( h_{\theta}(x) &gt; 0.5 \), \( y = 1 \)</li>
+<li>If \( h_{\theta}(x) &lt; 0.5 \), \( y = 0 \)</li>
 </ul>
 <h2>Logistic Regression</h2>
-<p>Recall Linear Regression Model funciton: $ h_{\theta}(x) = \theta^{T}x $</p>
-<p>$ h_{\theta}(x) = g(\theta^{T}x) $ where $ g(z) = \frac{1}{1 + e^{-z}} $, so
-$ h_{\theta}(x) = \frac{1}{1 + e^{-\theta^{T}x}} $.</p>
+<p>Recall Linear Regression Model funciton: \( h_{\theta}(x) = \theta^{T}x \)</p>
+<p>\( h_{\theta}(x) = g(\theta^{T}x) \) where \( g(z) = \frac{1}{1 + e^{-z}} \), so
+\( h_{\theta}(x) = \frac{1}{1 + e^{-\theta^{T}x}} \).</p>
 <h3>Interpretation of Hypothesis Output</h3>
 <ul>
-<li>$ h_{\theta}(x) = $ estimated probabilities that $ y = 1 $ on input $ x $.</li>
-<li>$ h_{\theta}(x) = P (y = 1 | x; \theta) $ is interpreted as:
-probability that $ y = 1 $, given $ x $ parameterized by $ \theta $</li>
+<li>\( h_{\theta}(x) = \) estimated probabilities that \( y = 1 \) on input \( x \).</li>
+<li>\( h_{\theta}(x) = P (y = 1 | x; \theta) \) is interpreted as:
+probability that \( y = 1 \), given \( x \) parameterized by \( \theta \)</li>
 </ul>
-<p>Since $ P(y = 0 | x; \theta) + P(y = 1 | x; \theta) = 1 $, we have $$ P(y = 0 | x; \theta) = 1 - P(y = 1 | x; \theta) = 1 - h_{\theta}(x) = 1 - \frac{1}{1 + e^{-\theta^{T}x}} $$</p>
+<p>Since \( P(y = 0 | x; \theta) + P(y = 1 | x; \theta) = 1 \), we have \[ P(y = 0 | x; \theta) = 1 - P(y = 1 | x; \theta) = 1 - h_{\theta}(x) = 1 - \frac{1}{1 + e^{-\theta^{T}x}} \]</p>
+<h3>Non-linear Decision Boundaries</h3>
+<p>\[ h_{\theta}(x) = g(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \theta_{3}x_{1}^{2} + \theta_{4}x_{2}^{2}) \]</p>
+<p>Let \( \theta_{0} = \begin{bmatrix} -1 \\ 0 \\ 0 \\ 1 \\ 1 \end{bmatrix} \), \( \theta_{1} = 0 \), \( \theta_{2} = 0 \), \( \theta_{3} = 1 \) and \( \theta_{4} = 0 \), we have \( h_{\theta}(x) = g(1 + x_{1}^{2} + x_{2}^{2}) \), which predicts \( y = 1 \) if \( -1 + x_{1}^{2} + x_{2}^{2} \geq 0 \).</p>
 
 </body>
 </html>
