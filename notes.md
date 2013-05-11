@@ -56,4 +56,4 @@ Since \\( P(y = 0 | x; \theta) + P(y = 1 | x; \theta) = 1 \\), we have \\[ P(y =
 
 \\[ h\_{\theta}(x) = g(\theta\_{0} + \theta\_{1}x\_{1} + \theta\_{2}x\_{2} + \theta\_{3}x\_{1}^{2} + \theta\_{4}x\_{2}^{2}) \\]
 
-Let \\( \theta\_{0} = \\begin{bmatrix} -1 \\\\ 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{bmatrix} \\), we have \\( h\_{\theta}(x) = g(-1 + x\_{1}^{2} + x\_{2}^{2}) \\), which predicts \\( y = 1 \\) if \\( -1 + x\_{1}^{2} + x\_{2}^{2} \geq 0 \\).
+Let \\( \theta = \\begin{bmatrix} -1 \\\\ 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{bmatrix} \\), we have \\( h\_{\theta}(x) = g(-1 + x\_{1}^{2} + x\_{2}^{2}) \\), which predicts \\( y = 1 \\) if \\( -1 + x\_{1}^{2} + x\_{2}^{2} \geq 0 \\).
