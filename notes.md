@@ -60,7 +60,7 @@ Let \\( \theta = \\begin{bmatrix} -1 \\\\ 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{bmatrix} 
 
 ### Cost Function ###
 
-For Linear Regression, the Cost Function is a squared cost function: \\[ Cost(h\_{\theta}(x, y)) = \frac{1}{2}(h\_{\theta}(x) - y)^{2} \\]
+For Linear Regression, the Cost Function is a squared cost function: \\[ \\text{Cost}(h\_{\theta}(x, y)) = \frac{1}{2}(h\_{\theta}(x) - y)^{2} \\]
 
 For Logistic Regression, the Cost Function is: \\[ f(x) = \\begin{cases} -\\log(h\_{\theta}(x)) & \\text{if} \\; y = 1 \\\\
 -\\log(1-h\_{\theta}(x)) & \\text{if} \\; y = 0 \\end{cases} \\]
