@@ -181,4 +181,4 @@ gradient(1) = \\[ \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{0
 
 gradient(2) = \\[ \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{1}^{(i)} \right) + \frac{\lambda}{m} \theta\_{1} \\]
 
-gradient(n+1) = \\[ \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{1}^{(i)} \right) + \frac{\lambda}{m} \theta\_{n} \\]
+gradient(n+1) = \\[ \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{n}^{(i)} \right) + \frac{\lambda}{m} \theta\_{n} \\]
