@@ -3,12 +3,7 @@
 <head>
 <title>Notes</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script><style type="text/css">
+<style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
 /* Author: Nicolas Hery - http://nicolashery.com */
 /* Version: 29d1c5bc36da364ad5aa86946d420b7bbc54a253 */
@@ -428,7 +423,7 @@ where \( 1 - \alpha \frac{\lambda}{m} \) is always a number small than 1 which w
 <p>jVal = \[ J(\theta) = \left[- \frac{1}{m} \sum_{i=1}^{m}y^{(i)} \log{h_{\theta}(x^{(i)})} + (1 - y^{(i)}) \log{(1-h_{\theta}(x^{(i)}))} \right] + \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_{j}^{2} \]</p>
 <p>gradient(1) = \[ \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{0}^{(i)} \]</p>
 <p>gradient(2) = \[ \left( \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{1}^{(i)} \right) + \frac{\lambda}{m} \theta_{1} \]</p>
-<p>gradient(n+1) = \[ \left( \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{1}^{(i)} \right) + \frac{\lambda}{m} \theta_{n} \]</p>
+<p>gradient(n+1) = \[ \left( \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{n}^{(i)} \right) + \frac{\lambda}{m} \theta_{n} \]</p>
 
 </body>
 </html>
