@@ -1,4 +1,4 @@
-# Exercise for Machine Learning #
+# Exercises for Machine Learning #
 
 These my solutions to exercises of [Machine Learning course](http://class.coursera.org/ml-003/) given by [Andrew Ng](http://ai.stanford.edu/~ang/) on [Coursera](http://www.coursera.org). For more, please visit http://michen6.github.io/.
 
@@ -8,7 +8,7 @@ These my solutions to exercises of [Machine Learning course](http://class.course
 
 ### Return 5x5 identity matrix in `warmUpExercises.m` ###
 
-  A = eye(5);
+	A = eye(5);
 
 ## 2. Linear regression with one variable ##
 
@@ -102,7 +102,7 @@ I haven't do the rest of extra parts of ex1:
 
 # Programming Exercise 2: Logistic Regression #
 
-## Logistic Regression ##
+## 1. Logistic Regression ##
 
 ### Plotting data in `plotData.m` ###
 
@@ -175,7 +175,7 @@ My solution is simply using `round`:
 
 	p = round(sigmoid(X * theta));
 
-## Regularized logistic regression ##
+## 2. Regularized logistic regression ##
 
 ### Feature mapping in `mapFeature.m` ###
 
