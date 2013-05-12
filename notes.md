@@ -1,6 +1,6 @@
 # Notes for Machine Learning #
 
-This is my notes for the [Machine Learning course](http://class.coursera.org/ml-003/) given by [Andrew Ng](http://ai.stanford.edu/~ang/) on [Coursera](http://www.coursera.org).
+These are my notes for the [Machine Learning course](http://class.coursera.org/ml-003/) given by [Andrew Ng](http://ai.stanford.edu/~ang/) on [Coursera](http://www.coursera.org). For more, please visit http://michen6.github.io/.
 
 ## Introduction ##
 
