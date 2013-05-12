@@ -67,7 +67,7 @@ For Logistic Regression, the Cost Function is:
 \\[ \text{Cost}(h\_{\theta}(x, y)) = \begin{cases} -\log{h\_{\theta}(x)} & \text{if} \; y = 1 \\\\
 -\log{(1-h\_{\theta}(x))} & \text{if} \; y = 0 \end{cases} \\]
 
-Recall we have \\( J(\theta) = \frac{1}{m} \sum\_{i=1}^{m} \text{Cost}(h\_{\theta}(x^{(i)}), y^{(i)}) \\) and \\( y = 0 \\) or \\( 1 \\) always.
+Recall we have \\( J(\theta) = \frac{1}{m} \sum\_{i=1}^{m} \text{Cost}(h\_{\theta}(x^{(i)}), y^{(i)}) \\) and \\( y \in \\{0, 1\\} \\).
 
 ### Gradient Descent ###
 
@@ -79,7 +79,9 @@ Thus we have
 
 We will \\( \min_{\theta}J(\theta) \\) and output \\( h\_{\theta}(x) = \frac{1}{1 + e^{-\theta^{T}x}} \\), so we do
 
-\\[ \text{Repeat} \\{ \theta\_{j} := \theta\_{j} - \alpha \frac{\partial}{\partial \theta\_{j}}J(\theta) \\} \\]
+Repeat \\( \\{ \\)
+\\[ \theta\_{j} := \theta\_{j} - \alpha \frac{\partial}{\partial \theta\_{j}}J(\theta) \qquad (j = 0, 1, 2, 3, ..., n) \\]
+\\( \\} \\)
 and \\[ \frac{\partial}{\partial \theta\_{j}}J(\theta) = \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)}) - y^{(i)})x\_{j}^{(i)} \\] which is identical to the algorithm of linear regression! The difference is the definition of hypothesis \\[ h\_{\theta}(x) = \begin{cases} \theta^{T}x & \text{for linear regression} \\\\ \frac{1}{1 + e^{-\theta^{T}x}} & \text{for logistic regression} \end{cases} \\].
 
 ### Advanced Optimization ###
@@ -109,14 +111,14 @@ Example:
 We have \\( h\_{\theta}^{(1)}(x) \\) for the first class, \\( h\_{\theta}^{(2)}(x) \\) for the second class and so one for all classes. So we calculate
 \\[ h\_{\theta}^{(i)}(x) = P(y=i|x;\theta) \qquad (i = 1, 2, 3) \\]
 
-On a new input \\( x \\), to make a prediction, pick the class \\( i \\) that maximizes \\[ \max\_{i}h\_{\theta}^{(i)}(x) \\]
+On a new input \\( x \\), to make a prediction, pick the class \\( i \\) that maximizes the hypothesis \\[ \max\_{i}h\_{\theta}^{(i)}(x) \\]
 
 ## Regularization ##
 
 The problem of over-fitting
 
 For linear regression, we can have
-\\[ h\_{\theta}(x) = \begin{cases} \theta\_{0} + \theta\_{1}x & \text{underfit \quad high bias} \\\\ \theta\_{0} + \theta\_{1}x + \theta\_{2}x^{2} & \text{just right} \\\\ \theta\_{0} + \theta\_{1}x + \theta\_{2}x^{2} + \theta\_{3}x^{3} + \theta\_{4}x^{4} & \text{overfit \quad high variance} \end{cases} \\]
+\\[ h\_{\theta}(x) = \begin{cases} \theta\_{0} + \theta\_{1}x & \text{underfit} & \text{high bias} \\\\ \theta\_{0} + \theta\_{1}x + \theta\_{2}x^{2} & \text{just right} \\\\ \theta\_{0} + \theta\_{1}x + \theta\_{2}x^{2} + \theta\_{3}x^{3} + \theta\_{4}x^{4} & \text{overfit} & \text{high variance} \end{cases} \\]
 
 - High Bias: 
 - High variance: 
@@ -140,5 +142,43 @@ Small values for parameters \\( \theta\_{0}, \theta\_{1}, ..., \theta_{n} \\)
 - Less prone to overfitting
 
 We penalize all parameters by adding extra term in cost function:
-\\[ J(\theta) = \frac{1}{2m} \left[ \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)}) - y^{(i)})^{2} + \lambda \sum\_{j=1}^{n} \theta\_{j}^{2} \right] \\] in which we usually don't penalize \\( \theta\_{0} \\). \\( \lambda \\) controls the tradeoff between the goal of fitting the training set well and the goal of keeping the parameters small and thus keeping the hypothesis relatively simple to avoid overfitting.
+\\[ J(\theta) = \frac{1}{2m} \left[ \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)}) - y^{(i)})^{2} + \lambda \sum\_{j=1}^{n} \theta\_{j}^{2} \right] \\]
+in which we usually don't penalize \\( \theta\_{0} \\). \\( \lambda \\) controls the tradeoff between the goal of fitting the training set well and the goal of keeping the parameters small and thus keeping the hypothesis relatively simple to avoid overfitting.
 
+If \\( \lambda \\) is chosen as a very large number, then all the parameters \\( \theta\_{1}, \theta\_{2}, ... \theta\_{n} \\) will be penalized to close to 0, thus the hypothesis is almost equal to \\( h\_{\theta}(x) = \theta\_{0} \\), which will underfit the training set.
+
+### Regularized Linear Regression ###
+
+For Gradient Descent:
+
+Repeat: \\( \\{ \\)
+\\[ \begin{aligned} & \theta\_{0} := \theta\_{0} - \alpha \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)}) - y^{(i)})x\_{0}^{(i)} \\\\ & \theta\_{j} := \theta\_{j} - \alpha \left[ \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)}) - y^{(i)})x\_{j}^{(i)} + \frac{\lambda}{m} \theta\_{j} \right] \\\\ & \qquad\qquad\qquad (j = 1, 2, 3, ..., n) \end{aligned} \\]
+\\( \\} \\) in which we can derive:
+\\[ \theta\_{j} := \theta\_{j}(1 - \alpha \frac{\lambda}{m}) - \alpha \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)}) - y^{(i)})x\_{j}^{(i)} \\]
+where \\( 1 - \alpha \frac{\lambda}{m} \\) is always a number small than 1 which will shrink \\( \theta\_{j} \\) in each iteration.
+
+For Normal Equation:
+
+\\[ \theta = \left(X^{T}X + \lambda \begin{bmatrix}
+0 \\\\ 
+& 1  \\\\ 
+& & \ddots \\\\
+& & & 1
+\end{bmatrix} \right) ^{-1}  X^{T}y \\]
+
+Note suppose \\( m \leq n \\), \\( X^{T}X \\) is non-invertible/singular, but with regularization, if \\( \lambda > 0 \\), \\( \left(X^{T}X + \lambda \begin{bmatrix}
+0 \\\\ 
+& 1  \\\\ 
+& & \ddots \\\\
+& & & 1
+\end{bmatrix} \right) \\) is non-singular and thus invertible.
+
+### Regularized Logistic Regression ###
+
+jVal = \\[ J(\theta) = \left[- \frac{1}{m} \sum\_{i=1}^{m}y^{(i)} \log{h\_{\theta}(x^{(i)})} + (1 - y^{(i)}) \log{(1-h\_{\theta}(x^{(i)}))} \right] + \frac{\lambda}{2m} \sum\_{j=1}^{n} \theta\_{j}^{2} \\]
+
+gradient(1) = \\[ \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{0}^{(i)} \\]
+
+gradient(2) = \\[ \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{1}^{(i)} \right) + \frac{\lambda}{m} \theta\_{1} \\]
+
+gradient(n+1) = \\[ \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{1}^{(i)} \right) + \frac{\lambda}{m} \theta\_{n} \\]
