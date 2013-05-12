@@ -107,7 +107,7 @@ Example:
 - Weather: Sunny, Cloudy, Rain, Snow
 
 We have \\( h\_{\theta}^{(1)}(x) \\) for the first class, \\( h\_{\theta}^{(2)}(x) \\) for the second class and so one for all classes. So we calculate
-\\[ h\_{\theta}^{(i)}(x) = P(y=i|x;\theta) \hspace{20} (i = 1, 2, 3) \\]
+\\[ h\_{\theta}^{(i)}(x) = P(y=i|x;\theta) \qquad (i = 1, 2, 3) \\]
 
 On a new input \\( x \\), to make a prediction, pick the class \\( i \\) that maximizes \\[ \max\_{i}h\_{\theta}^{(i)}(x) \\]
 
@@ -116,7 +116,7 @@ On a new input \\( x \\), to make a prediction, pick the class \\( i \\) that ma
 The problem of over-fitting
 
 For linear regression, we can have
-\\[ h\_{\theta}(x) = \begin{cases} \theta\_{0} + \theta\_{1}x & \text{linear is underfit and high bias} \\\\ \theta\_{0} + \theta\_{1}x + \theta\_{2}x^{2} & \text{quadratic is just right} \\\\ \theta\_{0} + \theta\_{1}x + \theta\_{2}x^{2} + \theta\_{3}x^{3} + \theta\_{4}x^{4} & \text{overfit and high variance} \end{cases} \\]
+\\[ h\_{\theta}(x) = \begin{cases} \theta\_{0} + \theta\_{1}x & \text{underfit \quad high bias} \\\\ \theta\_{0} + \theta\_{1}x + \theta\_{2}x^{2} & \text{just right} \\\\ \theta\_{0} + \theta\_{1}x + \theta\_{2}x^{2} + \theta\_{3}x^{3} + \theta\_{4}x^{4} & \text{overfit \quad high variance} \end{cases} \\]
 
 - High Bias: 
 - High variance: 
@@ -126,7 +126,7 @@ For linear regression, we can have
 Options:
 
 1. Reduce number of features
-  - Manually select which features to keep
+	- Manually select which features to keep
 	- Model selection algorithm
 2. Regularization
 	- Keep all the features, but reduce magnitude/values of parameters \\( \theta\_{j} \\)
