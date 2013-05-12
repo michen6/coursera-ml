@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Exercise</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: 29d1c5bc36da364ad5aa86946d420b7bbc54a253 */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Exercises for Machine Learning</h1>
+<p>These my solutions to exercises of <a href="http://class.coursera.org/ml-003/">Machine Learning course</a> given by <a href="http://ai.stanford.edu/~ang/">Andrew Ng</a> on <a href="http://www.coursera.org">Coursera</a>. For more, please visit http://michen6.github.io/.</p>
+<h1>Programming Exercise 1: Linear Regression</h1>
+<h2>1. Simple octave function</h2>
+<h3>Return 5x5 identity matrix in <code>warmUpExercises.m</code></h3>
+<pre><code>A = eye(5);
+</code></pre>
+
+<h2>2. Linear regression with one variable</h2>
+<h3>Loading the Data</h3>
+<pre><code>data = load('ex1data1.txt');        % read comma separated data
+X = data(:, 1); y = data(:, 2);
+m = length(y);                      % number of training examples
+</code></pre>
+
+<h3>Plotting the Data in <code>plotData.m</code></h3>
+<pre><code>plot(x, y, 'rx', 'MarkerSize', 10);         % Plot the data
+ylabel('Profit in $10,000s');               % Set the y axis label
+xlabel('Population of City in 10,000s');    % Set the x axis label
+</code></pre>
+
+<h3>Gradient Descent</h3>
+<p>Cost Funtion: \( J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_{\theta}(x^{(i)}) - y^{(i)})^{2} \) where the hypothesis \( h_{\theta}(x^{(i)}) \) is given by \( h_{\theta}(x^{(i)}) = \theta^{T}x = \theta_{0} + \theta_{1}x_{1} \).</p>
+<p>In batch gradient descent, each iteration performs the update:
+\[ \theta_{j} := \theta_{j} - \alpha \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})x_{j}^{(i)} \qquad \text{(simultaneously update } \theta_{j} \text{ for all j )} \]</p>
+<p><strong>Implementation</strong></p>
+<pre><code>X = [ones(m, 1), data(:,1)];    % Add a column of ones to x
+theta = zeros(2, 1);            % initialize fitting parameters
+iterations = 1500;
+alpha = 0.01;
+</code></pre>
+
+<h3>Compute the cost \( J(\theta) \) in <code>computeCost.m</code></h3>
+<p>My solution uses <code>sum</code> which sum up each column and <code>.^</code> which is power by element.:</p>
+<pre><code>J = sum((X * theta - y) .^ 2) / (2 * size(X, 1));   % Compute cost for X and y with theta
+</code></pre>
+
+<p>This solution creates local variables for hypothesis and cost function:</p>
+<pre><code>h = X*theta;            % Define hypothesis
+c = (h-y).^2;           % Define cost function
+J = sum(c)/(2*m);
+</code></pre>
+
+<p>or this uses product of matrix to get power and sum:</p>
+<pre><code>J = (1/(2*m)) * (X*theta-y)' * (X*theta-y);
+</code></pre>
+
+<h3>Gradient Descent in <code>gradientDecent.m</code></h3>
+<p>My solution uses two transpose <code>'</code> to perform matrix product:</p>
+<pre><code>for iter = 1:num_iters
+    theta = theta - alpha / m * ((X * theta - y)' * X)';    % Update theta by gradient descent
+    J_history(iter) = computeCost(X, y, theta);             % Save the cost J in every iteration
+end
+</code></pre>
+
+<h3>Visualizing \( J(\theta) \)</h3>
+<pre><code>% initialize J vals to a matrix of 0's
+J vals = zeros(length(theta0 vals), length(theta1 vals));
+% Fill out J vals
+for i = 1:length(theta0 vals)
+    for j = 1:length(theta1 vals)
+        t = [theta0 vals(i); theta1 vals(j)];
+        J vals(i,j) = computeCost(x, y, t);
+    end
+end
+</code></pre>
+
+<h2>Linear regression with multiple variables</h2>
+<h3>Feature Normalization in <code>featureNormalize.m</code></h3>
+<p>Two tasks:</p>
+<ul>
+<li>Subtract the mean value of each feature from the dataset.</li>
+<li>After subtracting the mean, additionally scale (divide) the feature values
+by their respective &quot;standard deviations&quot;. In Octave, you can use the <code>std</code> function to
+compute the standard deviation.</li>
+</ul>
+<p>My solution uses <code>repmat</code> to duplicate <code>mu</code> and <code>sigma</code> to fit the size of <code>X</code>:</p>
+<pre><code>mu = mean(X);
+sigma = std(X);
+mu_tiled = repmat(mu, [size(X, 1), 1]);
+sigma_tiled = repmat(sigma, [size(X, 1), 1]);
+X_norm = (X - mu_tiled)./sigma_tiled
+</code></pre>
+
+<p>I haven't do the rest of extra parts of ex1:</p>
+<ul>
+<li><code>computeCostMulti.m</code></li>
+<li><code>gradientDescentMulti.m</code></li>
+<li><code>normalEqn.m</code></li>
+</ul>
+<h1>Programming Exercise 2: Logistic Regression</h1>
+<h2>1. Logistic Regression</h2>
+<h3>Plotting data in <code>plotData.m</code></h3>
+<pre><code>% Find Indices of Positive and Negative Examples
+pos = find(y==1); neg = find(y == 0);
+
+% Plot Examples
+plot(X(pos, 1), X(pos, 2), 'k+','LineWidth', 2, ... 'MarkerSize', 7);
+plot(X(neg, 1), X(neg, 2), 'ko', 'MarkerFaceColor', 'y', ... 'MarkerSize', 7);
+</code></pre>
+
+<p><strong>Implementation</strong></p>
+<h3>Sigmoid function in <code>sigmoid.m</code></h3>
+<p>The sigmoid function is defined as \( g(z) = \frac{1}{1 + e^{-z}} \)</p>
+<p>My solution is using nested loop to compute by each element:</p>
+<pre><code>for i = 1 : size(z, 1)
+    for  j = 1 : size(z, 2)
+        g(i, j) = 1 / (1 + e ^ ( 0 - z(i, j)));
+    end
+end
+</code></pre>
+
+<p>This solution is straightforward which uses <code>exp</code> to calculate the e to the power of -z:</p>
+<pre><code>g = 1.0 ./ (1.0 + exp(-z));
+</code></pre>
+
+<h3>Cost function and gradient in <code>costFunction.m</code></h3>
+<p>Recall that the cost function in logistic regression is
+\[ J(\theta) = \frac{1}{m} \sum_{i=1}^{m} \text{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) = - \frac{1}{m} \left[\sum_{i=1}^{m}y^{(i)} \log{h_{\theta}(x^{(i)})} + (1 - y^{(i)}) \log{(1-h_{\theta}(x^{(i)}))} \right] \]</p>
+<p>My solution is to first calculate hypothesis using <code>sigmoid</code> and then apply matrix product to get \( J(\theta) \) and gradient vector:</p>
+<pre><code>h = sigmoid(X * theta);                                 % Define hypothesis
+J = (1/m) * (-y' * log(h) - (1 - y') * log(1 - h))
+grad = (1/m) * (X' * (h - y));
+</code></pre>
+
+<p>This solution resembles my solution by defining local variables for <code>costPos</code> which is 0 when \( y = 0 \) and <code>costNeg</code> which is 1 when \( y = 1 \):</p>
+<pre><code>h = sigmoid(X * theta);     % get the hypothesis for all of X, given theta;
+costPos = -y' * log(h);
+costNeg = (1 - y') * log(1 - h);
+J = (1/m) * (costPos - costNeg);
+</code></pre>
+
+<p>This solution uses <code>sum</code> and <code>.*</code> to calculate the sum:</p>
+<pre><code>H_theta = sigmoid(X * theta);
+J = (1.0/m) * sum(-y .* log(H_theta) - (1.0 - y) .* log(1.0 - H_theta));
+grad = (1.0/m) .* X' * (H_theta - y);
+</code></pre>
+
+<h3>Learning parameters using <code>fminunc</code></h3>
+<p>Octave’s <code>fminunc</code> is an optimization solver that finds the minimum of an unconstrained function. For logistic regression, you want to optimize the cost function \( J(\theta) \) with parameters \( \theta \).</p>
+<p>In <code>ex2.m</code>, the code is written with the correct arguments:</p>
+<pre><code>% Set options for fminunc
+options = optimset('GradObj', 'on', 'MaxIter', 400);
+
+% Run fminunc to obtain the optimal theta
+% This function will return theta and the cost
+[theta, cost] = ...
+    fminunc(@(t)(costFunction(t, X, y)), initial theta, options);
+</code></pre>
+
+<h3>Evaluating logistic regression in <code>predict.m</code></h3>
+<p>My solution is simply using <code>round</code>:</p>
+<pre><code>p = round(sigmoid(X * theta));
+</code></pre>
+
+<h2>2. Regularized logistic regression</h2>
+<h3>Feature mapping in <code>mapFeature.m</code></h3>
+<p>Provided function <code>mapFeature.m</code> maps the features into
+all polynomial terms of \( x_{1} \) and \( x_{2} \) up to the sixth power:</p>
+<pre><code>function out = mapFeature(X1, X2)
+    degree = 6;
+    out = ones(size(X1(:,1)));
+    for i = 1:degree
+        for j = 0:i
+            out(:, end+1) = (X1.^(i-j)).*(X2.^j);
+        end
+    end
+end
+</code></pre>
+
+<h3>Cost function and gradient in <code>costFunctionReg.m</code></h3>
+<p>Recall that the regularized cost function in logistic regression is
+\[ J(\theta) = \frac{1}{2m} \left[ \sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})^{2} + \lambda \sum_{j=1}^{n} \theta_{j}^{2} \right] \]</p>
+<p>The gradient of
+the cost function is a vector where the \( j^{th} \) element is defined as follows:
+\[ \frac{\partial J(\theta)}{\partial \theta_{0}} = \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{j}^{(i)} \qquad \text{for } j = 0 \]
+\[ \frac{\partial J(\theta)}{\partial \theta_{j}} = \left( \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{j}^{(i)} \right) + \frac{\lambda}{m} \theta_{j} \qquad \text{for } j \geq 1 \]</p>
+<p>My solution uses <code>[0; ones(size(theta, 1) - 1, 1)]</code> to filter the theta values except \( \theta_{0} \):</p>
+<pre><code>function [J, grad] = costFunctionReg(theta, X, y, lambda)
+    m = length(y); % number of training examples
+    h = sigmoid(X * theta);
+    J = (1/m) * (-y' * log(h) - (1 - y') * log(1 - h)) + lambda / 2 / m * (theta' .* [0; ones(size(theta, 1) - 1, 1)]') * theta;
+    grad = (1/m) * (X' * (h - y)) + lambda / m * theta .* [0; ones(size(theta, 1) - 1, 1)];
+end
+</code></pre>
+
+<p>This solution first compute \( J(\theta) \) and gradient without regularization and then add the regularization term using filter <code>[0; theta(2:end)]</code> for theta:</p>
+<pre><code>[J, grad] = costFunction(theta, X, y);
+
+% Deal with the theta(1) term
+thetaFiltered = [0; theta(2:end)];
+
+% J is the the non-regularized cost plus regularization
+J = J + ((lambda / (2*m)) * (thetaFiltered' * thetaFiltered));
+
+% grad is the non-regularized cost plus regularization.
+grad = grad + ((lambda / m) * thetaFiltered);
+</code></pre>
+
+<h3>Plotting the decision boundary in <code>plotDecisionBoundary.m</code></h3>
+<p><code>plotDecisionBoundary.m</code> plots the non-linear decision boundary by computing the classifier’s predictions on an evenly spaced grid and then and drew a contour plot of where the predictions change from \( y = 0 \) to \( y = 1 \).</p>
+<pre><code>function plotDecisionBoundary(theta, X, y)
+    plot_x = [min(X(:,2))-2,  max(X(:,2))+2];
+
+    % Calculate the decision boundary line
+    plot_y = (-1./theta(3)).*(theta(2).*plot_x + theta(1));
+
+    % Plot, and adjust axes for better viewing
+    plot(plot_x, plot_y)
+
+    % Legend, specific for the exercise
+    legend('Admitted', 'Not admitted', 'Decision Boundary')
+    axis([30, 100, 30, 100])
+end
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
