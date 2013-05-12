@@ -3,7 +3,12 @@
 <head>
 <title>Notes</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style type="text/css">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script><style type="text/css">
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
 /* Author: Nicolas Hery - http://nicolashery.com */
 /* Version: 29d1c5bc36da364ad5aa86946d420b7bbc54a253 */
@@ -319,7 +324,111 @@ probability that \( y = 1 \), given \( x \) parameterized by \( \theta \)</li>
 <p>Since \( P(y = 0 | x; \theta) + P(y = 1 | x; \theta) = 1 \), we have \[ P(y = 0 | x; \theta) = 1 - P(y = 1 | x; \theta) = 1 - h_{\theta}(x) = 1 - \frac{1}{1 + e^{-\theta^{T}x}} \]</p>
 <h3>Non-linear Decision Boundaries</h3>
 <p>\[ h_{\theta}(x) = g(\theta_{0} + \theta_{1}x_{1} + \theta_{2}x_{2} + \theta_{3}x_{1}^{2} + \theta_{4}x_{2}^{2}) \]</p>
-<p>Let \( \theta^{T} = \begin{bmatrix} -1 & 0 & 0 & 1 & 1 \end{bmatrix} \), we have \( h_{\theta}(x) = g(1 + x_{1}^{2} + x_{2}^{2}) \), which predicts \( y = 1 \) if \( -1 + x_{1}^{2} + x_{2}^{2} \geq 0 \).</p>
+<p>Let \( \theta\ = \begin{bmatrix} -1 \\ 0 \\ 0 \\ 1 \\ 1 \end{bmatrix} \), we have \( h_{\theta}(x) = g(-1 + x_{1}^{2} + x_{2}^{2}) \), which predicts \( y = 1 \) if \( -1 + x_{1}^{2} + x_{2}^{2} \geq 0 \).</p>
+<h3>Cost Function</h3>
+<p>For Linear Regression, the Cost Function is a squared cost function:
+\[ \text{Cost}(h_{\theta}(x, y)) = \frac{1}{2}(h_{\theta}(x) - y)^{2} \]</p>
+<p>For Logistic Regression, the Cost Function is:
+\[ \text{Cost}(h_{\theta}(x, y)) = \begin{cases} -\log{h_{\theta}(x)} &amp; \text{if} \; y = 1 \\
+-\log{(1-h_{\theta}(x))} &amp; \text{if} \; y = 0 \end{cases} \]</p>
+<p>Recall we have \( J(\theta) = \frac{1}{m} \sum_{i=1}^{m} \text{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) \) and \( y \in \{0, 1\} \).</p>
+<h3>Gradient Descent</h3>
+<p>Cost Function in one equation:
+\[ \text{Cost}(h_{\theta}(x, y)) = -y \log{h_{\theta}(x)} + - (1 - y) \log{(1-h_{\theta}(x))} \]</p>
+<p>Thus we have
+\[ J(\theta) = \frac{1}{m} \sum_{i=1}^{m} \text{Cost}(h_{\theta}(x^{(i)}), y^{(i)}) = - \frac{1}{m} \left[\sum_{i=1}^{m}y^{(i)} \log{h_{\theta}(x^{(i)})} + (1 - y^{(i)}) \log{(1-h_{\theta}(x^{(i)}))} \right] \]</p>
+<p>We will \( \min_{\theta}J(\theta) \) and output \( h_{\theta}(x) = \frac{1}{1 + e^{-\theta^{T}x}} \), so we do</p>
+<p>Repeat \( \{ \)
+\[ \theta_{j} := \theta_{j} - \alpha \frac{\partial}{\partial \theta_{j}}J(\theta) \qquad (j = 0, 1, 2, 3, ..., n) \]
+\( \} \)
+and \[ \frac{\partial}{\partial \theta_{j}}J(\theta) = \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})x_{j}^{(i)} \] which is identical to the algorithm of linear regression! The difference is the definition of hypothesis \[ h_{\theta}(x) = \begin{cases} \theta^{T}x &amp; \text{for linear regression} \\ \frac{1}{1 + e^{-\theta^{T}x}} &amp; \text{for logistic regression} \end{cases} \].</p>
+<h3>Advanced Optimization</h3>
+<ul>
+<li>Gradient descent</li>
+<li>Conjugate gradient</li>
+<li>BFGS</li>
+<li>L-BFGS</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>No need to manually pick \( \alpha \). They perform a linear search for all possible \( \alpha \)</li>
+<li>Often faster than gradient descent</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>More complex: you should not implement these algorithms by yourself, and if you do, use function to calculate inverse of matrix. Make sure to try different libraries of different implementations</li>
+</ul>
+<h3>Multi-class Classification: One-vs-all</h3>
+<p>Example:</p>
+<ul>
+<li>Email foldering/tagging: Work, Friends, Family, Hobby</li>
+<li>Medical diagrams: Not ill, Cold, flu</li>
+<li>Weather: Sunny, Cloudy, Rain, Snow</li>
+</ul>
+<p>We have \( h_{\theta}^{(1)}(x) \) for the first class, \( h_{\theta}^{(2)}(x) \) for the second class and so one for all classes. So we calculate
+\[ h_{\theta}^{(i)}(x) = P(y=i|x;\theta) \qquad (i = 1, 2, 3) \]</p>
+<p>On a new input \( x \), to make a prediction, pick the class \( i \) that maximizes the hypothesis \[ \max_{i}h_{\theta}^{(i)}(x) \]</p>
+<h2>Regularization</h2>
+<p>The problem of over-fitting</p>
+<p>For linear regression, we can have
+\[ h_{\theta}(x) = \begin{cases} \theta_{0} + \theta_{1}x &amp; \text{underfit} &amp; \text{high bias} \\ \theta_{0} + \theta_{1}x + \theta_{2}x^{2} &amp; \text{just right} \\ \theta_{0} + \theta_{1}x + \theta_{2}x^{2} + \theta_{3}x^{3} + \theta_{4}x^{4} &amp; \text{overfit} &amp; \text{high variance} \end{cases} \]</p>
+<ul>
+<li>High Bias: </li>
+<li>High variance: </li>
+</ul>
+<h3>Addressing Overfitting</h3>
+<p>Options:</p>
+<ol>
+<li>
+Reduce number of features
+<ul>
+<li>Manually select which features to keep</li>
+<li>Model selection algorithm</li>
+</ul>
+</li>
+<li>
+Regularization
+<ul>
+<li>Keep all the features, but reduce magnitude/values of parameters \( \theta_{j} \)</li>
+<li>Works well when we have a lot of features, each of which contributes a bit to predicting \( y \).</li>
+</ul>
+</li>
+</ol>
+<h3>Cost Function for Regularization</h3>
+<p>Small values for parameters \( \theta_{0}, \theta_{1}, ..., \theta_{n} \)</p>
+<ul>
+<li>&quot;Simpler&quot; hypothesis</li>
+<li>Less prone to overfitting</li>
+</ul>
+<p>We penalize all parameters by adding extra term in cost function:
+\[ J(\theta) = \frac{1}{2m} \left[ \sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})^{2} + \lambda \sum_{j=1}^{n} \theta_{j}^{2} \right] \]
+in which we usually don't penalize \( \theta_{0} \). \( \lambda \) controls the tradeoff between the goal of fitting the training set well and the goal of keeping the parameters small and thus keeping the hypothesis relatively simple to avoid overfitting.</p>
+<p>If \( \lambda \) is chosen as a very large number, then all the parameters \( \theta_{1}, \theta_{2}, ... \theta_{n} \) will be penalized to close to 0, thus the hypothesis is almost equal to \( h_{\theta}(x) = \theta_{0} \), which will underfit the training set.</p>
+<h3>Regularized Linear Regression</h3>
+<p>For Gradient Descent:</p>
+<p>Repeat: \( \{ \)
+\[ \begin{aligned} &amp; \theta_{0} := \theta_{0} - \alpha \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})x_{0}^{(i)} \\ &amp; \theta_{j} := \theta_{j} - \alpha \left[ \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})x_{j}^{(i)} + \frac{\lambda}{m} \theta_{j} \right] \\ &amp; \qquad\qquad\qquad (j = 1, 2, 3, ..., n) \end{aligned} \]
+\( \} \) in which we can derive:
+\[ \theta_{j} := \theta_{j}(1 - \alpha \frac{\lambda}{m}) - \alpha \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})x_{j}^{(i)} \]
+where \( 1 - \alpha \frac{\lambda}{m} \) is always a number small than 1 which will shrink \( \theta_{j} \) in each iteration.</p>
+<p>For Normal Equation:</p>
+<p>\[ \theta = \left(X^{T}X + \lambda \begin{bmatrix}
+0 \\ 
+&amp; 1  \\ 
+&amp; &amp; \ddots \\
+&amp; &amp; &amp; 1
+\end{bmatrix} \right) ^{-1}  X^{T}y \]</p>
+<p>Note suppose \( m \leq n \), \( X^{T}X \) is non-invertible/singular, but with regularization, if \( \lambda &gt; 0 \), \( \left(X^{T}X + \lambda \begin{bmatrix}
+0 \\ 
+&amp; 1  \\ 
+&amp; &amp; \ddots \\
+&amp; &amp; &amp; 1
+\end{bmatrix} \right) \) is non-singular and thus invertible.</p>
+<h3>Regularized Logistic Regression</h3>
+<p>jVal = \[ J(\theta) = \left[- \frac{1}{m} \sum_{i=1}^{m}y^{(i)} \log{h_{\theta}(x^{(i)})} + (1 - y^{(i)}) \log{(1-h_{\theta}(x^{(i)}))} \right] + \frac{\lambda}{2m} \sum_{j=1}^{n} \theta_{j}^{2} \]</p>
+<p>gradient(1) = \[ \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{0}^{(i)} \]</p>
+<p>gradient(2) = \[ \left( \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{1}^{(i)} \right) + \frac{\lambda}{m} \theta_{1} \]</p>
+<p>gradient(n+1) = \[ \left( \frac{1}{m} \sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})x_{1}^{(i)} \right) + \frac{\lambda}{m} \theta_{n} \]</p>
 
 </body>
 </html>
