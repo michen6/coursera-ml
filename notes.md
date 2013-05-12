@@ -175,10 +175,10 @@ Note suppose \\( m \leq n \\), \\( X^{T}X \\) is non-invertible/singular, but wi
 
 ### Regularized Logistic Regression ###
 
-jVal = \\[ J(\theta) = \left[- \frac{1}{m} \sum\_{i=1}^{m}y^{(i)} \log{h\_{\theta}(x^{(i)})} + (1 - y^{(i)}) \log{(1-h\_{\theta}(x^{(i)}))} \right] + \frac{\lambda}{2m} \sum\_{j=1}^{n} \theta\_{j}^{2} \\]
+jVal = \\( J(\theta) = \left[- \frac{1}{m} \sum\_{i=1}^{m}y^{(i)} \log{h\_{\theta}(x^{(i)})} + (1 - y^{(i)}) \log{(1-h\_{\theta}(x^{(i)}))} \right] + \frac{\lambda}{2m} \sum\_{j=1}^{n} \theta\_{j}^{2} \\)
 
-gradient(1) = \\[ \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{0}^{(i)} \\]
+gradient(1) = \\( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{0}^{(i)} \\)
 
-gradient(2) = \\[ \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{1}^{(i)} \right) + \frac{\lambda}{m} \theta\_{1} \\]
+gradient(2) = \\( \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{1}^{(i)} \right) + \frac{\lambda}{m} \theta\_{1} \\)
 
-gradient(n+1) = \\[ \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{n}^{(i)} \right) + \frac{\lambda}{m} \theta\_{n} \\]
+gradient(n+1) = \\( \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{n}^{(i)} \right) + \frac{\lambda}{m} \theta\_{n} \\)
