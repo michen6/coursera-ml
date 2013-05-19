@@ -182,3 +182,70 @@ gradient(1) = \\( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{0
 gradient(2) = \\( \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{1}^{(i)} \right) + \frac{\lambda}{m} \theta\_{1} \\)
 
 gradient(n+1) = \\( \left( \frac{1}{m} \sum\_{i=1}^{m}(h\_{\theta}(x^{(i)})-y^{(i)})x\_{n}^{(i)} \right) + \frac{\lambda}{m} \theta\_{n} \\)
+
+## Neural Networks ##
+
+Neural networks are the state-of-the-art techniques for many machine learning problems (Non-linear classification).
+
+### Non-linear Hypothesis ###
+
+If we include quadratic in logistic regression, we will have \\( n^{2} \\) features for n original features.
+
+In computer vision, we have a car detection problem. The picture is recorded as a matrix of pixels which is a integer.  For example, if we have a 50x50 pixel images -> 2500 pixels (7500 if RGB).
+\\[ x= \begin{bmatrix} \text{pixel 1 intensity}
+\\\\ \text{pixel 2 intensity} \\\\ \vdots \\\\ \text{pixel n intensity} \end{bmatrix} \\]
+where simple logistic regression will introduce \\( \approx 3 \text{million features} \\).
+
+### Neurons and Brain ###
+
+Neural networks origins as algorithms that try to mimic the brain.
+
+- Auditory Cortex is related to hearing.
+- Somatosensory cortex is related to touch.
+
+### Model Representation ###
+
+- Input: Dendrite
+- Computation: Nucleus
+- Output: Axon
+- Transmission: Spites (pulse of electricity)
+
+Neuron model: Logistic Unit
+
+Sigmoid (logistic) activation function
+![](img/8-model-representation-1.png)
+
+Neuron network is a group of logistic units.
+![](img/8-model-representation-2.png)
+
+\\( a\_{i}^{(j)} = \\) "activation" of unit \\( i \\) in layer \\( j \\).
+\\( \Theta^{(j)} = \\) matrix of weights controlling function mapping from layer \\( j \\) to layer \\( j + 1 \\).
+![](img/8-model-representation-3.png)
+
+### Forward Propagation: Vectorized Implementation ###
+
+Neural Networks learn its own features.
+
+### Examples ###
+
+- AND
+
+![](img/8-examples-and.png)
+
+- OR
+
+![](img/8-examples-or.png)
+
+- Negation
+
+![](img/8-examples-not.png)
+
+### Multi-class Classification ###
+
+![Multi-class](img/8-multi-class.png)
+
+\\[ y^{(i)} \in \left\\{ \begin{bmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \end{bmatrix} , \begin{bmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 0 \end{bmatrix} , \begin{bmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \end{bmatrix} , \begin{bmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \end{bmatrix} \right\\} \\]
+
+ **Q**: Suppose you have a multi-class classification problem with three classes, trained with a 3 layer network. Let \\( a^{(3)}\_1 = (h_\Theta(x))\_1 \\) be the activation of the first output unit, and similarly \\( a^{(3)}\_3 = (h\_\Theta(x))\_3 \\). Then for any input x, it must be the case that \\( a^{(3)}\_1 + a^{(3)}\_2 + a^{(3)}\_3 = 1 \\).
+
+**A**: The outputs of a neural network are not probabilities, so their sum need not be 1.
